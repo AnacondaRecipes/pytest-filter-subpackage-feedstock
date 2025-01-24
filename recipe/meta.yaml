@@ -23,15 +23,22 @@ requirements:
     - wheel
   run:
     - python
-    - pytest >=3.0
+    - pytest >=4.6
+    - packaging
 
 test:
+  source_files:
+    - tests/
   requires:
     - pytest
     - pytest-doctestplus
     - pytest-cov
+    - pip
   imports:
     - pytest_filter_subpackage
+  commands:
+    - pip check
+    - pytest tests -vv
 
 about:
   home: https://github.com/astropy/pytest-filter-subpackage
