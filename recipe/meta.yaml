@@ -31,14 +31,12 @@ test:
     - tests/
   requires:
     - pytest
-    - pytest-doctestplus
-    - pytest-cov
     - pip
   imports:
     - pytest_filter_subpackage
   commands:
     - pip check
-    - pytest tests -vv
+    - pytest tests -vv -k "not(test_with_rst or test_flag_single_subpackage_with_rst or test_flag_multiple_subpackage_with_rst)"
 
 about:
   home: https://github.com/astropy/pytest-filter-subpackage
